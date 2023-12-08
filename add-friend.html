@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="app h-screen overflow-y-scroll" x-data="{ open: false }">
-        <div class="w-full shadow-md bg-rose-300 z-20 py-3 flex justify-between items-center px-5 static top-0">
+        <div class="w-full shadow-md bg-rose-300 z-20 py-3 flex justify-between items-center px-5 static sticky top-0">
             <div class="flex items-center gap-5">
                 <p @click="open = !open" class="sidebar-btn text-white text-xl cursor-pointer">
                     <i class="fas fa-bars"></i>
@@ -27,75 +27,22 @@
                 <i class="fas fa-user-plus"></i>
             </p>
         </div>
-        <div id="chat-bar" class="w-full shadow-md bg-white z-20 py-3 flex justify-between items-center px-5 sticky top-0">
-            <div class="flex items-center gap-5">
-                <img src="./assets/img/man.png" class="w-10" alt="">
-                <div>
-                    <p class="text-base font-bold text-rose-500">Saw Soe Linn Htet</p>
-                    <p class="flex items-center text-lime-400 font-base">
-                        <i class="fas fa-circle mr-2" style="font-size: 10px;"></i>
-                        <span class="inline-block text-sm">Active</span>
-                    </p>
-                </div>
-            </div>
-            <a href="./info.html">
-                <p class="text-rose-500 text-xl cursor-pointer">
-                    <i class="fas fa-info-circle"></i>
+        <div @click="open = false" class="main-chat-area h-full">
+            <div>
+                <p class="text-center mt-5 text-xl font-bold text-rose-500"> 
+                    Add Friend
                 </p>
-            </a>
-        </div>
-
-        <div @click="open = false" class="main-chat-area h-full relative">
-            <div class="px-2 flex flex-col">
-                <div class="w-full px-2 py-3 flex justify-between items-center">
-                    <div class="w-full flex gap-3">
-                        <div class="w-2/12">
-                            <img src="./assets/img/man.png" class="w-10 m-0 m-auto" alt=""> 
-                        </div>
-                        <div class="w-9/12 flex flex-col items-start">
-                            <p class="inline bg-rose-400 px-3 py-2 rounded-2xl text-sm text-white font-semibold">
-                                Hello
-                            </p>
-                            <p class="text-[12px] mt-2 text-black ml-2">3s ago</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-2 py-3 flex justify-between items-center flex-row-reverse">
-                    <div class="w-full flex flex-row-reverse gap-3">
-                        <div class="w-2/12">
-                            <img src="./assets/img/man.png" class="w-10 m-0 m-auto" alt=""> 
-                        </div>
-                        <div class="w-9/12 flex flex-col items-end">
-                            <p class="inline bg-rose-400 px-3 py-2 rounded-2xl text-sm text-white font-semibold">
-                                Hello
-                            </p>
-                            <p class="text-[12px] mt-2 text-black">3s ago</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-2 py-3 flex justify-between items-center flex-row-reverse">
-                    <div class="w-full flex flex-row-reverse gap-3">
-                        <div class="w-2/12">
-                            <img src="./assets/img/man.png" class="w-10 m-0 m-auto" alt=""> 
-                        </div>
-                        <div class="w-9/12 flex flex-col items-end">
-                            <p class="inline bg-rose-400 px-3 py-2 rounded-2xl text-sm text-white font-semibold">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, adipisci voluptas ut neque a ducimus suscipit exercitationem qui sunt officia nisi rem aperiam tempore nihil nam commodi sint repellat ea!
-                            </p>
-                            <p class="text-[12px] mt-2 text-black">3s ago</p>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-            <div class="chatarea shadow-md fixed z-30 bg-gray-200 py-2 bottom-0 left-0 right-0 px-5 flex items-start gap-3">
-                <textarea name="" id="" class="w-full h-14 border-2 border-rose-400 rounded-md p-2 outline-none"></textarea>
-                <button class="px-2 py-1 text-lg bg-rose-400 rounded-lg text-white">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <form action="">
+                    <div class="flex items-center justify-center py-5 flex-col gap-3 px-5">
+                        <input type="number" placeholder="Friend's id" class="px-5 py-3 outline-none rounded-md text-center text-lg bg-white border-2 border-rose-300">
+                        <button class="px-10 mt-3 py-2 bg-rose-400 text-white font-bold rounded-lg">
+                            Search
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-
         <div x-cloak x-show="open"
             x-transition:enter="transition origin-left ease-out duration-300"
             x-transition:enter-start="transform -translate-x-full opacity-0"
